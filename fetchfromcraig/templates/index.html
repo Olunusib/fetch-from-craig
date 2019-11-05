@@ -1,0 +1,55 @@
+{% load staticfiles %}
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch From Craig</title>
+    <meta charset="UTF-8"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+
+
+
+</head>
+
+<body>
+<div class="navbar-fixed">
+    <nav style="background-color: #2F4F4F">
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">FetchFromCraig</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="https://github.com/Olunusib">Olunusib</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class='container'>
+    <h3 style="text-align: center; padding-bottom: 5px">Hi, welcome to FetchFromCraig!</h3><br><br><br><br>
+
+    <form action="{% url 'results' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="search">
+        <button class="btn waves-effect waves-light" type="submit" name="submit" style="background-color: #2F4F4F">Submit
+            <i class="material-icons right">send</i>
+        </button>
+
+    </form>
+
+    {% block content %}
+    {% endblock content %}
+
+</div>
+
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
